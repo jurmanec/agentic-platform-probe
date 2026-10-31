@@ -24,7 +24,7 @@ E1 and E2 are local. E3 wraps the frozen E2 answer path.
 
 ## What this leaves out
 
-One segment fixture and four stub tools. Keyword overlap instead of embeddings. No authorizer on the ask API. No message send, no journey graph, and no claim of a production agent platform.
+One segment fixture and four stub tools. Keyword overlap instead of embeddings. No authorizer on the ask API. No message send, no journey graph.
 
 Two follow-ons are written down and not started: [Amazon Bedrock as the generation client](docs/planning/e3-bedrock.md), and an [eval harness over frozen E2](docs/planning/e4-evals.md).
 
