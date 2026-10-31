@@ -4,7 +4,7 @@
 **Workspace:** `p5_agentic`  
 **Status:** **E1 frozen** 2026-08-20; **E2 frozen** 2026-08-23; **E3 deployed and tested** 2026-10-31 (happy, fail, idempotent retry). Two follow-ons are written and **not started**.
 
-> Living specs: [docs/E1.md](docs/E1.md), [docs/E2.md](docs/E2.md), [docs/E3.md](docs/E3.md), root [README.md](README.md). This file is the **portfolio / LLM context** snapshot (parallel to the P0–P3 notes).
+> Living specs: [docs/E1.md](docs/E1.md), [docs/E2.md](docs/E2.md), [docs/E3.md](docs/E3.md), public [README.md](README.md), operator guide [docs/how-to/setup-run-deploy.md](docs/how-to/setup-run-deploy.md). This file is the **portfolio / LLM context** snapshot (parallel to the P0–P3 notes).
 
 ---
 

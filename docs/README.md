@@ -11,7 +11,9 @@ Experiment plans, MarTech concept notes, and slice specs for the agentic platfor
 | [E3.md](E3.md) | Cloud reliability slice — idempotent RAG API (**deployed and tested**) |
 | [planning/e3-bedrock.md](planning/e3-bedrock.md) | Bedrock generation behind the E3 Lambda (**proposal**, E3 follow-on) |
 | [planning/e4-evals.md](planning/e4-evals.md) | Eval harness over frozen E2 (**proposal**) |
+| [how-to/setup-run-deploy.md](how-to/setup-run-deploy.md) | Setup, local runs, E3 deploy, and curl smoke tests |
 | [how-to/bruno-e3.md](how-to/bruno-e3.md) | Call the deployed E3 API from Bruno without committing the URL |
+| [how-to/deploy-e3.md](how-to/deploy-e3.md) | Redeploy the E3 stack from a local `.env` |
 | [concepts/](concepts/README.md) | Marketing-ops / probe glossary |
 
-Root [README.md](../README.md) has setup and run commands.
+The [root README](../README.md) is the public overview. Operator commands live under [how-to/](how-to/setup-run-deploy.md).
