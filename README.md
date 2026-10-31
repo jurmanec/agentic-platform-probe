@@ -2,8 +2,6 @@
 
 A short, freezeable look at agentic platform work in an illustrative marketing-ops setting. The domain data is synthetic. This is not a production marketing platform.
 
-A marketer can describe a campaign in a sentence. The systems around that sentence want a structured step, a cited policy answer, or a repeatable API call. The probe asks where a model helps with that handoff, and where ordinary code should stay in charge.
-
 ## Slices
 
 | Slice | Question | What shipped |
@@ -13,6 +11,16 @@ A marketer can describe a campaign in a sentence. The systems around that senten
 | **E3** — idempotent ask API | Can that grounded answer be called twice without calling the model twice? | Deployed and tested. API Gateway, Lambda, and DynamoDB. The caller supplies an idempotency key; a retry returns the stored JSON. |
 
 E1 and E2 are local. E3 wraps the frozen E2 answer path.
+
+## Stack
+
+| Layer | In this probe |
+| --- | --- |
+| Agent loop | Python 3.13. E1 is an explicit tool loop with a step cap. The model drafts a journey step; code checks it against channel policy. |
+| Tool calling | LangChain binds four stub tools: load the segment, load the rules, propose the step, validate constraints. |
+| Generation | One chat model, xAI Grok through LangChain, for the E1 draft and the E2 answer. |
+| Retrieval | Keyword overlap over a few policy docs, in process. The contract is a citation or `unknown`. Embeddings are out of scope. |
+| API | AWS SAM: API Gateway, Lambda, DynamoDB. `POST /ask` stores the E2 JSON under a caller-supplied idempotency key and returns that JSON on retry. |
 
 ## What this leaves out
 
