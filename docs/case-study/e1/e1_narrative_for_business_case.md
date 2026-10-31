@@ -1,0 +1,13 @@
+A marketer can say what the campaign is for. The journey tool can only accept a legal step. The pain is the translation between those two, done by hand, one campaign at a time.
+
+Maya runs residential lifecycle campaigns. On Monday she has a brief: promote a fiber upgrade to existing residential customers in the Northeast. She already knows the audience. The segment seg_residential_northeast_active exists. What she does not have is a journey step the platform will accept.
+
+She opens the segment tool and reads the traits: residential, Northeast, active. She opens the policy page and sees email and in-app allowed, SMS disallowed, plus a written rule, rule_no_sms_residential. She opens the journey builder, which wants a channel, a message theme, and a timing. It does not want her paragraph. She picks SMS because upgrade offers have been getting better reply rates on text, names the theme something like “fiber upgrade,” sets the timing to “this week,” and submits it for ops review.
+
+The reviewer sends it back. SMS is not legal for that segment. Maya checks the policy she already had open, switches the channel to email, and rewrites the reason in the ticket so the next reviewer knows she did it on purpose. Nothing was sent. Half a day went to a step that is still only three fields and a sentence of justification. The same loop happens for the next brief, and the one after that. The policy did not change. The briefs did.
+
+The failure mode is not a missing database. The segment and the rule were already there. The failure mode is that the only place the brief and the policy meet is in a person’s head, and the journey tool cannot tell “upgrade offer” from “account status reminder.” A status reminder might belong in-app. A promotional upgrade might belong in email. Both channels are allowed. Choosing between them, naming the theme, and writing why, is the work that gets redone every time someone guesses SMS first.
+
+E1 is that handoff. Maya still writes the brief and still picks the segment. The agent loads the segment and the rules, and returns one draft step: channel email, theme fiber_upgrade_offer, timing immediate, and a rationale that says email is permitted and fits a promotional offer to active residential customers. validate_constraints checks the draft against rule_no_sms_residential before anyone queues it. If the draft had been SMS, the reviewer would see a rejection with the rule id, not a ticket three days later.
+
+What she gets back is not copy and not a send. It is a step she can approve, edit, or throw out. The benefit is fewer round trips between a sentence and a legal structured action, and a reason attached to the action so the review is about the campaign instead of about whether anyone read the policy.

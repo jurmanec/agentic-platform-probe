@@ -1,0 +1,52 @@
+{
+    "segment_id": "seg_residential_northeast_active",
+    "proposal": {
+      "channel": "email",
+      "message_theme": "fiber_upgrade_promo",
+      "timing": "immediate",
+      "rationale": "Email is allowed by policy and suitable for promoting upgrades to active residential customers in the Northeast."
+    },
+    "validation": {
+      "approved": true,
+      "violations": []
+    },
+    "status": "approved",
+    "tool_calls": [
+      {
+        "name": "get_segment",
+        "args": {
+          "segment_id": "seg_residential_northeast_active"
+        },
+        "ok": true
+      },
+      {
+        "name": "get_audience_rules",
+        "args": {
+          "segment_id": "seg_residential_northeast_active"
+        },
+        "ok": true
+      },
+      {
+        "name": "propose_journey_step",
+        "args": {
+          "brief": "Promote a new fiber upgrade to existing residential customers in the Northeast.",
+          "segment_id": "seg_residential_northeast_active",
+          "channel": "email",
+          "message_theme": "fiber_upgrade_promo",
+          "timing": "immediate",
+          "rationale": "Email is allowed by policy and suitable for promoting upgrades to active residential customers in the Northeast."
+        },
+        "ok": true
+      },
+      {
+        "name": "validate_constraints",
+        "args": {
+          "segment_id": "seg_residential_northeast_active",
+          "channel": "email",
+          "message_theme": "fiber_upgrade_promo",
+          "timing": "immediate"
+        },
+        "ok": true
+      }
+    ]
+  }

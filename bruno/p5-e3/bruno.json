@@ -1,0 +1,7 @@
+{
+  "version": "1",
+  "name": "P5 E3 - Idempotent RAG API",
+  "type": "collection",
+  "ignore": ["node_modules", ".git"],
+  "defaultEnvironment": "deployed"
+}

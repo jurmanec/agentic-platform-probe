@@ -1,0 +1,8 @@
+{
+    "brief": "Promote a new fiber upgrade to existing residential customers in the Northeast.",
+    "segment_id": "seg_residential_northeast_active",
+    "channel": "email",
+    "message_theme": "fiber_upgrade_offer",
+    "timing": "immediate",
+    "rationale": "Target active residential customers in Northeast with email promotion for fiber upgrade, compliant with channel policy."
+}

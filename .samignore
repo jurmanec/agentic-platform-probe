@@ -1,0 +1,16 @@
+# SAM build exclusions (project root is CodeUri)
+.venv
+venv
+.git
+.cursor
+.aws-sam
+.env
+__pycache__
+**/__pycache__
+*.py[cod]
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.DS_Store
+docs
+.cursor

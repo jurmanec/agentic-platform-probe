@@ -1,0 +1,16 @@
+{
+  "seg_residential_northeast_active": {
+    "id": "seg_residential_northeast_active",
+    "name": "Residential Northeast Active",
+    "channel_policy": {
+      "email": "allowed",
+      "in_app": "allowed",
+      "sms": "disallowed"
+    },
+    "attributes": {
+      "account_type": "residential",
+      "region": "northeast",
+      "status": "active"
+    }
+  }
+}

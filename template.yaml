@@ -1,0 +1,66 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: E3 idempotent RAG API (wraps frozen E2)
+
+Parameters:
+  XaiApiKey:
+    Type: String
+    NoEcho: true
+    Description: xAI API key for Grok generation (same as local .env XAI_API_KEY)
+
+Globals:
+  Function:
+    Timeout: 60
+    MemorySize: 512
+    Runtime: python3.13
+
+Resources:
+  IdempotencyTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: idempotency_key
+          AttributeType: S
+      KeySchema:
+        - AttributeName: idempotency_key
+          KeyType: HASH
+
+  AskApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: $default
+
+  AskFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: python3.13
+    Properties:
+      Handler: e3.handler.lambda_handler
+      CodeUri: .
+      Description: Idempotent POST /ask over E2 RAG
+      Environment:
+        Variables:
+          IDEMPOTENCY_TABLE: !Ref IdempotencyTable
+          XAI_API_KEY: !Ref XaiApiKey
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref IdempotencyTable
+      Events:
+        AskPost:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AskApi
+            Path: /ask
+            Method: POST
+
+Outputs:
+  AskApiUrl:
+    Description: Base URL for the HTTP API (append /ask for POST)
+    Value: !Sub "https://${AskApi}.execute-api.${AWS::Region}.amazonaws.com"
+  IdempotencyTableName:
+    Description: DynamoDB table for idempotency keys
+    Value: !Ref IdempotencyTable
+  AskFunctionArn:
+    Description: Lambda function ARN
+    Value: !GetAtt AskFunction.Arn

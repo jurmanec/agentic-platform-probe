@@ -1,0 +1,13 @@
+{
+  "seg_residential_northeast_active": {
+    "rules": [
+      {
+        "rule_id": "rule_no_sms_residential",
+        "description": "SMS is not permitted for this residential segment.",
+        "constraint": {
+          "channel_not": "sms"
+        }
+      }
+    ]
+  }
+}
